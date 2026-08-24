@@ -1,0 +1,777 @@
+{
+    "filtres": {
+        "ages": [7, 10],
+        "joueurs": [1, 2, 3, 4, 5, 6, 7],
+        "duree": [30, 60]
+    },
+    "jeux": [
+        {
+            "nom": "Qui est-ce ?",
+            "categories": ["Ambiance", "Défis, énigmes et quizz"],
+            "age": "6+",
+            "nbjoueurs": "2",
+            "duree": 15,
+            "image": "img/Qui_est_ce.webp"
+        },
+        {
+            "nom": "Quarto",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "8+",
+            "nbjoueurs": "2",
+            "duree": 15,
+            "image": "img/Quarto.webp"
+        },
+        {
+            "nom": "Château Combo",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "10+",
+            "nbjoueurs": "2-5",
+            "duree": 25,
+            "image": "img/Chateau_Combo.webp"
+        },
+        {
+            "nom": "Après l'Orage",
+            "categories": ["Stratégie", "Coopératif"],
+            "age": "6+",
+            "nbjoueurs": "1-5",
+            "duree": 20,
+            "image": "img/Apres_Orage.jpg"
+        },
+        {
+            "nom": "Monopoly",
+            "categories": ["Stratégie", "Gestion et développement"],
+            "age": "8+",
+            "nbjoueurs": "2-6",
+            "duree": 90,
+            "image": "img/Monopoly.webp"
+        },
+        {
+            "nom": "Monopoly Game of Thrones",
+            "categories": ["Stratégie", "Gestion et développement"],
+            "age": "8+",
+            "nbjoueurs": "2-6",
+            "duree": 90,
+            "image": "img/Monopoly_GoT.jpg"
+        },
+        {
+            "nom": "Esquissé ?",
+            "categories": ["Ambiance", "Expression et créativité"],
+            "age": "8+",
+            "nbjoueurs": "4-6",
+            "duree": 20,
+            "image": "img/Esquisse.webp"
+        },
+        {
+            "nom": "Rummikub",
+            "categories": ["Classique", "Jeux de chiffres et lettres"],
+            "age": "7+",
+            "nbjoueurs": "2-4",
+            "duree": 45,
+            "image": "img/Rummikub.webp"
+        },
+        {
+            "nom": "Scrabble",
+            "categories": ["Classique", "Jeux de chiffres et lettres"],
+            "age": "10+",
+            "nbjoueurs": "2-4",
+            "duree": 60,
+            "image": "img/Scrabble.png"
+        },
+        {
+            "nom": "La Bonne Paye",
+            "categories": ["Ambiance", "Bluff, hasard et intuition"],
+            "age": "8+",
+            "nbjoueurs": "2-6",
+            "duree": 45,
+            "image": "img/Bonne_Paye.webp"
+        },
+        {
+            "nom": "Les Aventuriers du Rail",
+            "categories": ["Stratégie", "Aventure, course et simulation"],
+            "age": "8+",
+            "nbjoueurs": "2-5",
+            "duree": 60,
+            "image": "img/Aventuriers_Rail.webp"
+        },
+        {
+            "nom": "Jumanji",
+            "categories": ["Stratégie", "Aventure, course et simulation"],
+            "age": "8+",
+            "nbjoueurs": "2-4",
+            "duree": 30,
+            "image": "img/Jumanji.webp"
+        },
+        {
+            "nom": "Little Town",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "10+",
+            "nbjoueurs": "2-4",
+            "duree": 30,
+            "image": "img/Little_Town.jpg"
+        },
+        {
+            "nom": "Cranium",
+            "categories": ["Ambiance", "Délires et rigolades"],
+            "age": "12+",
+            "nbjoueurs": "4-10",
+            "duree": 60,
+            "image": "img/Cranium.webp"
+        },
+        {
+            "nom": "Concept",
+            "categories": ["Ambiance", "Défis, énigmes et quizz"],
+            "age": "10+",
+            "nbjoueurs": "4-12",
+            "duree": 40,
+            "image": "img/Concept.webp"
+        },
+        {
+            "nom": "Taboo XXL",
+            "categories": ["Ambiance"],
+            "age": "12+",
+            "nbjoueurs": "4-99",
+            "duree": 60,
+            "image": "img/Taboo_XXL.jpg"
+        },
+        {
+            "nom": "Odin",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "7+",
+            "nbjoueurs": "2-6",
+            "duree": 15,
+            "image": "img/Odin.webp"
+        },
+        {
+            "nom": "L'Apéro Jeu Poitevin",
+            "categories": ["Ambiance"],
+            "age": "8+",
+            "nbjoueurs": "4-99",
+            "duree": 20,
+            "image": "img/Apero_Poitevin.jpeg"
+        },
+        {
+            "nom": "DTC",
+            "categories": ["Ambiance", "Bluff, hasard et intuition"],
+            "age": "7+",
+            "nbjoueurs": "2-6",
+            "duree": 20,
+            "image": "img/DTC.jpg"
+        },
+        {
+            "nom": "Las Vegas",
+            "categories": ["Ambiance", "Bluff, hasard et intuition"],
+            "age": "8+",
+            "nbjoueurs": "2-5",
+            "duree": 30,
+            "image": "img/Las_Vegas.webp"
+        },
+        {
+            "nom": "Arctic",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "10+",
+            "nbjoueurs": "2-4",
+            "duree": 30,
+            "image": "img/Arctic.webp"
+        },
+        {
+            "nom": "Chabyrinthe",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "6+",
+            "nbjoueurs": "2-4",
+            "duree": 30,
+            "image": "img/Chabyrinthe.webp"
+        },
+        {
+            "nom": "Saboteur",
+            "categories": ["Ambiance", "Bluff, hasard et intuition"],
+            "age": "8+",
+            "nbjoueurs": "3-10",
+            "duree": 30,
+            "image": "img/Saboteur.jpg"
+        },
+        {
+            "nom": "Cric Crac Kroc",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "5+",
+            "nbjoueurs": "2-5",
+            "duree": 10,
+            "image": "img/Cric_Crac_Kroc.webp"
+        },
+        {
+            "nom": "Dékal",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "7+",
+            "nbjoueurs": "2-6",
+            "duree": 15,
+            "image": "img/Dekal.webp"
+        },
+        {
+            "nom": "Skyjo",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "8+",
+            "nbjoueurs": "2-8",
+            "duree": 30,
+            "image": "img/Skyjo.webp"
+        },
+        {
+            "nom": "Sardines",
+            "categories": ["Mémoire et Association"],
+            "age": "5+",
+            "nbjoueurs": "2-4",
+            "duree": 30,
+            "image": "img/Sardines.webp"
+        },
+        {
+            "nom": "7 Familles - Rois et Reines de France",
+            "categories": ["Mémoire et Association"],
+            "age": "4+",
+            "nbjoueurs": "2-4",
+            "duree": 15,
+            "image": "img/7familles_Rois_Rennes.jpg"
+        },
+        {
+            "nom": "7 Familles - Animaux Sauvages",
+            "categories": ["Mémoire et Association"],
+            "age": "4+",
+            "nbjoueurs": "2-4",
+            "duree": 15,
+            "image": "img/7familles_Animaux_Sauvages.jpg"
+        },
+        {
+            "nom": "Timeline Twist",
+            "categories": ["Ambiance", "Défis, énigmes et quizz"],
+            "age": "8+",
+            "nbjoueurs": "2-6",
+            "duree": 20,
+            "image": "img/Timeline_Twist.webp"
+        },
+        {
+            "nom": "Recto Verso",
+            "categories": ["Ambiance", "Défis, énigmes et quizz"],
+            "age": "8+",
+            "nbjoueurs": "2-6",
+            "duree": 30,
+            "image": "img/Recto_Verso.webp"
+        },
+        {
+            "nom": "Le Trésor des Lutins",
+            "categories": ["Stratégie", "Réflexion et tactique", "Coopératif"],
+            "age": "4+",
+            "nbjoueurs": "2-4",
+            "duree": 20,
+            "image": "img/Tresor_Lutins.webp"
+        },
+        {
+            "nom": "Captain Flip",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "8+",
+            "nbjoueurs": "2-5",
+            "duree": 20,
+            "image": "img/Captain_Flip.webp"
+        },
+        {
+            "nom": "Andor Junior",
+            "categories": ["Stratégie", "Aventure, course et simulation"],
+            "age": "7+",
+            "nbjoueurs": "2-4",
+            "duree": 45,
+            "image": "img/Andor_Junior.webp"
+        },
+        {
+            "nom": "L'Île des Chats",
+            "categories": ["Stratégie", "Aventure, course et simulation"],
+            "age": "8+",
+            "nbjoueurs": "1-4",
+            "duree": 90,
+            "image": "img/Ile_Chats.webp"
+        },
+        {
+            "nom": "7 Wonders Architects",
+            "categories": ["Stratégie", "Gestion et développement"],
+            "age": "8+",
+            "nbjoueurs": "2-7",
+            "duree": 25,
+            "image": "img/7_Wonders_Architects.webp"
+        },
+        {
+            "nom": "La Colline aux Feux Follets",
+            "categories": ["Stratégie", "Réflexion et tactique", "Coopératif"],
+            "age": "5+",
+            "nbjoueurs": "1-4",
+            "duree": 20,
+            "image": "img/Colline_Feux_Follets.webp"
+        },
+        {
+            "nom": "Hutan",
+            "categories": ["Stratégie", "Réflexion et tactique", "Coopératif"],
+            "age": "8+",
+            "nbjoueurs": "1-4",
+            "duree": 40,
+            "image": "img/Hutan.webp"
+        },
+        {
+            "nom": "Triominos",
+            "categories": ["Classique", "Jeux de chiffres et lettres"],
+            "age": "6+",
+            "nbjoueurs": "2-4",
+            "duree": 20,
+            "image": "img/Triominos.webp"
+        },
+        {
+            "nom": "La Tour Infernale",
+            "categories": ["Classique"],
+            "age": "6+",
+            "nbjoueurs": "1-4",
+            "duree": 30,
+            "image": "img/Tour_Infernale.jpg"
+        },
+        {
+            "nom": "Trio",
+            "categories": ["Ambiance", "Bluff, hasard et intuition"],
+            "age": "7+",
+            "nbjoueurs": "3-6",
+            "duree": 15,
+            "image": "img/Trio.png"
+        },
+        {
+            "nom": "Dobble",
+            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "age": "6+",
+            "nbjoueurs": "2-8",
+            "duree": 15,
+            "image": "img/Dobble.jpg"
+        },
+        {
+            "nom": "Dobble 360",
+            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "age": "6+",
+            "nbjoueurs": "2-8",
+            "duree": 15,
+            "image": "img/Dobble_360.jpg"
+        },
+        {
+            "nom": "Dobble Pixar",
+            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "age": "6+",
+            "nbjoueurs": "2-8",
+            "duree": 15,
+            "image": "img/Dobble_Pixar.jpg"
+        },
+        {
+            "nom": "Dobble Disney Classics",
+            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "age": "6+",
+            "nbjoueurs": "2-8",
+            "duree": 15,
+            "image": "img/Dobble_Disney_Classics.jpg"
+        },
+        {
+            "nom": "Jungle Speed",
+            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "age": "7+",
+            "nbjoueurs": "2-10",
+            "duree": 15,
+            "image": "img/Jungle_Speed.webp"
+        },
+        {
+            "nom": "SOS Ouistiti",
+            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "age": "5+",
+            "nbjoueurs": "2-4",
+            "duree": 30,
+            "image": "img/SOS_Ouistiti.jpg"
+        },
+        {
+            "nom": "Mémo de couleurs Safari",
+            "categories": ["Mémoire et Association"],
+            "age": "3+",
+            "nbjoueurs": "2-4",
+            "duree": 10,
+            "image": "img/Memo_Safari.jpg"
+        },
+        {
+            "nom": "Réveille pas Papa",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "5+",
+            "nbjoueurs": "2-4",
+            "duree": 20,
+            "image": "img/Reveille_Pas_Papa.jpg"
+        },
+        {
+            "nom": "L'Escalier Hanté",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "4+",
+            "nbjoueurs": "2-4",
+            "duree": 15,
+            "image": "img/Escalier_Hante.webp"
+        },
+        {
+            "nom": "Pin Pon !",
+            "categories": ["Stratégie", "Réflexion et tactique", "Coopératif"],
+            "age": "3+",
+            "nbjoueurs": "2-4",
+            "duree": 15,
+            "image": "img/Pin_Pon.jpg"
+        },
+        {
+            "nom": "Jeu de l'Oie",
+            "categories": ["Classique"],
+            "age": "4+",
+            "nbjoueurs": "2-4",
+            "duree": 15,
+            "image": "img/Jeu_Oie.jpg"
+        },
+        {
+            "nom": "Petits Chevaux",
+            "categories": ["Classique"],
+            "age": "4+",
+            "nbjoueurs": "2-4",
+            "duree": 15,
+            "image": "img/Petits_Chevaux.jpg"
+        },
+        {
+            "nom": "Gagne Ton Papa!",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "3+",
+            "nbjoueurs": "1-2",
+            "duree": 15,
+            "image": "img/Gagne_Ton_Papa.webp"
+        },
+        {
+            "nom": "Nom d'un Renard !",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "5+",
+            "nbjoueurs": "2-4",
+            "duree": 20,
+            "image": "img/Nom_Renard.webp"
+        },
+        {
+            "nom": "SOS Dino",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "7+",
+            "nbjoueurs": "1-4",
+            "duree": 25,
+            "image": "img/SOS_Dino.webp"
+        },
+        {
+            "nom": "Dragomino",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "5+",
+            "nbjoueurs": "2-4",
+            "duree": 15,
+            "image": "img/Dragomino.webp"
+        },
+        {
+            "nom": "Archeo",
+            "categories": ["Stratégie", "Réflexion et tactique", "Coopératif"],
+            "age": "5+",
+            "nbjoueurs": "1-5",
+            "duree": 20,
+            "image": "img/Archeo.webp"
+        },
+        {
+            "nom": "Ma valise de jeux ... en Voyage !",
+            "categories": ["Classique"],
+            "age": "4+",
+            "nbjoueurs": "2-4",
+            "duree": 15,
+            "image": "img/Valise_Jeux_Voyage.jpg"
+        },
+        {
+            "nom": "Uno",
+            "categories": ["Classique"],
+            "age": "7+",
+            "nbjoueurs": "2-10",
+            "duree": 15,
+            "image": "img/Uno.webp"
+        },
+        {
+            "nom": "Quartet Animaux",
+            "categories": ["Mémoire et Association"],
+            "age": "4+",
+            "nbjoueurs": "2-4",
+            "duree": 15,
+            "image": "img/Quartet_Animaux.png"
+        },
+        {
+            "nom": "7 Familles - Princesses Disney",
+            "categories": ["Mémoire et Association"],
+            "age": "4+",
+            "nbjoueurs": "2-4",
+            "duree": 15,
+            "image": "img/7familles_Princesses_Disney.jpg"
+        },
+        {
+            "nom": "Mistigri",
+            "categories": ["Ambiance", "Délires et rigolades"],
+            "age": "4+",
+            "nbjoueurs": "2-4",
+            "duree": 15,
+            "image": "img/Mistigri.jpg"
+        },
+        {
+            "nom": "Au feu les Pompiers",
+            "categories": ["Cartes"],
+            "age": "3+",
+            "nbjoueurs": "2",
+            "duree": 10,
+            "image": "img/Feu_Pompiers.webp"
+        },
+        {
+            "nom": "Bata-Waf",
+            "categories": ["Cartes"],
+            "age": "3+",
+            "nbjoueurs": "2-4",
+            "duree": 15,
+            "image": "img/Bata_Waf.jpg"
+        },
+        {
+            "nom": "Bata-Miaou",
+            "categories": ["Cartes"],
+            "age": "3+",
+            "nbjoueurs": "2-4",
+            "duree": 15,
+            "image": "img/Bata_Miaou.jpg"
+        },
+        {
+            "nom": "Taco Chat Bouc Cheese Pizza",
+            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "age": "8+",
+            "nbjoueurs": "2-8",
+            "duree": 10,
+            "image": "img/Taco_Chat_Bouc_Cheese_Pizza.webp"
+        },
+        {
+            "nom": "Pixies",
+            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "age": "8+",
+            "nbjoueurs": "2-5",
+            "duree": 30,
+            "image": "img/Pixies.webp"
+        },
+        {
+            "nom": "Blanc Manger Coco",
+            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "age": "16+",
+            "nbjoueurs": "3-12",
+            "duree": 30,
+            "image": "img/Blanc_Manger_Coco.webp"
+        },
+        {
+            "nom": "Elixir",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "10+",
+            "nbjoueurs": "3-8",
+            "duree": 60,
+            "image": "img/Elixir.jpg"
+        },
+        {
+            "nom": "Romans Go Home",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "10+",
+            "nbjoueurs": "1-4",
+            "duree": 15,
+            "image": "img/Romans_Go_Home.jpg"
+        },
+        {
+            "nom": "Les Mystères de Pékin",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "8+",
+            "nbjoueurs": "2-6",
+            "duree": 45,
+            "image": "img/Mysteres_Pekin.jpg"
+        },
+        {
+            "nom": "Mille Bornes",
+            "categories": ["Classique"],
+            "age": "6+",
+            "nbjoueurs": "2-8",
+            "duree": 20,
+            "image": "img/Mille_Bornes.webp"
+        },
+        {
+            "nom": "Mon Premier Le Lynx",
+            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "age": "2+",
+            "nbjoueurs": "2-8",
+            "duree": 15,
+            "image": "img/Lynx_Premier.webp"
+        },
+        {
+            "nom": "Le Lynx",
+            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "age": "5+",
+            "nbjoueurs": "2-6",
+            "duree": 30,
+            "image": "img/Lynx.webp"
+        },
+        {
+            "nom": "Le Loto des Odeurs",
+            "categories": ["Adresse, mémoire et rapidité"],
+            "age": "4+",
+            "nbjoueurs": "1-5",
+            "duree": 30,
+            "image": "img/Loto_Odeurs.webp"
+        },
+        {
+            "nom": "Qui l'a vu ?",
+            "categories": ["Stratégie", "Énigmes et enquêtes"],
+            "age": "6+",
+            "nbjoueurs": "2-4",
+            "duree": 30,
+            "image": "img/Qui_vu.jpg"
+        },
+        {
+            "nom": "La Quête des Pierres de Lune",
+            "categories": ["Stratégie", "Énigmes et enquêtes", "Coopératif"],
+            "age": "7+",
+            "nbjoueurs": "1-4",
+            "duree": 60,
+            "image": "img/Quete_Pierres_Lune.jpg"
+        },
+        {
+            "nom": "Labyrinthe Junior Sam le pompier",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "4+",
+            "nbjoueurs": "2-4",
+            "duree": 15,
+            "image": "img/Labyrinthe_Sam.jpg"
+        },
+        {
+            "nom": "Labyrinthe Disney",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "7+",
+            "nbjoueurs": "2-4",
+            "duree": 30,
+            "image": "img/Labyrinthe_Disney.webp"
+        },
+        {
+            "nom": "Allez les Escargots",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "3+",
+            "nbjoueurs": "2-6",
+            "duree": 15,
+            "image": "img/Allez_Escargots.webp"
+        },
+        {
+            "nom": "Délicieuse Lave",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "5+",
+            "nbjoueurs": "2-4",
+            "duree": 20,
+            "image": "img/Delicieuse_Lave.webp"
+        },
+        {
+            "nom": "La Maison des Souris",
+            "categories": ["Mémoire et Association", "Coopératif"],
+            "age": "5+",
+            "nbjoueurs": "2-6",
+            "duree": 20,
+            "image": "img/Maison_Souris.webp"
+        },
+        {
+            "nom": "Chromino",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "6+",
+            "nbjoueurs": "1-6",
+            "duree": 30,
+            "image": "img/Chromino.webp"
+        },
+        {
+            "nom": "Monza",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "5+",
+            "nbjoueurs": "2-6",
+            "duree": 15,
+            "image": "img/Monza.webp"
+        },
+        {
+            "nom": "La Planche des Pirates",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "5+",
+            "nbjoueurs": "2-4",
+            "duree": 15,
+            "image": "img/Planche_Pirates.webp"
+        },
+        {
+            "nom": "Little Coopération",
+            "categories": ["Stratégie", "Réflexion et tactique", "Coopératif"],
+            "age": "3+",
+            "nbjoueurs": "2-4",
+            "duree": 10,
+            "image": "img/Little_Cooperation.jpg"
+        },
+        {
+            "nom": "Croque Carotte",
+            "categories": ["Ambiance", "Délires et rigolades"],
+            "age": "4+",
+            "nbjoueurs": "2-4",
+            "duree": 20,
+            "image": "img/Croque_Carotte.webp"
+        },
+        {
+            "nom": "Le Jeu du Loup",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "3+",
+            "nbjoueurs": "1-4",
+            "duree": 15,
+            "image": "img/Jeu_Loup.webp"
+        },
+        {
+            "nom": "Ludozo-o",
+            "categories": ["Mémoire et Association"],
+            "age": "3+",
+            "nbjoueurs": "2-4",
+            "duree": 10,
+            "image": "img/Ludozo.jpg"
+        },
+        {
+            "nom": "Premier Verger",
+            "categories": ["Mémoire et Association", "Coopératif"],
+            "age": "2+",
+            "nbjoueurs": "1-4",
+            "duree": 10,
+            "image": "img/Premier_Verger.jpg"
+        },
+        {
+            "nom": "Rhino Hero Junior",
+            "categories": ["Mémoire et Association"],
+            "age": "2+",
+            "nbjoueurs": "1-4",
+            "duree": 10,
+            "image": "img/Rhino_Hero_Junior.jpg"
+        },
+        {
+            "nom": "Elmer - Le jeu des Couleurs",
+            "categories": ["Mémoire et Association"],
+            "age": "3+",
+            "nbjoueurs": "2-4",
+            "duree": 15,
+            "image": "img/Elmer.webp"
+        },
+        {
+            "nom": "Touche et trouve",
+            "categories": ["Mémoire et Association"],
+            "age": "2+",
+            "nbjoueurs": "2-5",
+            "duree": 10,
+            "image": "img/Touche_trouve.jpg"
+        },
+        {
+            "nom": "Cuisto Dingo",
+            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "age": "4+",
+            "nbjoueurs": "2-6",
+            "duree": 15,
+            "image": "img/Cuisto_Dingo.jpg"
+        },
+        {
+            "nom": "Barbecue Party",
+            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "age": "4+",
+            "nbjoueurs": "2-8",
+            "duree": 10,
+            "image": "img/Barbecue_Party.webp"
+        }
+    ]
+}

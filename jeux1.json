@@ -1,0 +1,457 @@
+{
+    "filtres": {
+        "ages": [7, 10],
+        "joueurs": [1, 2, 3, 4, 5, 6, 7],
+        "duree": [30, 60]
+    },
+    "jeux": [
+        {
+            "nom": "Perfect Words",
+            "categories": ["Ambiance", "Expression et créativité"],
+            "age": "10+",
+            "nbjoueurs": "2-6",
+            "duree": 20,
+            "image": "img/Perfect_Words.webp"
+        },
+        {
+            "nom": "Cluedo",
+            "categories": ["Stratégie", "Énigmes et enquêtes"],
+            "age": "9+",
+            "nbjoueurs": "3-6",
+            "duree": 45,
+            "image": "img/Cluedo.webp"
+        },
+        {
+            "nom": "Uno Star Wars Mandalorian",
+            "categories": ["Ambiance", "Délires et rigolades"],
+            "age": "7+",
+            "nbjoueurs": "2-10",
+            "duree": 15,
+            "image": "img/Uno_Star_Wars.jpg"
+        },
+        {
+            "nom": "Mille Bornes",
+            "categories": ["Classique"],
+            "age": "6+",
+            "nbjoueurs": "2-8",
+            "duree": 20,
+            "image": "img/Mille_Bornes.webp"
+        },
+        {
+            "nom": "Dobble Star Wars Mandalorian",
+            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "age": "6+",
+            "nbjoueurs": "2-8",
+            "duree": 15,
+            "image": "img/Dobble_Star_Wars.webp"
+        },
+        {
+            "nom": "Jungle Speed",
+            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "age": "7+",
+            "nbjoueurs": "2-10",
+            "duree": 15,
+            "image": "img/Jungle_Speed.webp"
+        },
+        {
+            "nom": "The Crew",
+            "categories": ["Ambiance", "Bluff, hasard et intuition", "Coopératif"],
+            "age": "10+",
+            "nbjoueurs": "3-5",
+            "duree": 20,
+            "image": "img/The_Crew.webp"
+        },
+        {
+            "nom": "La Marche du Crabe",
+            "categories": ["Stratégie", "Réflexion et tactique", "Coopératif"],
+            "age": "8+",
+            "nbjoueurs": "2",
+            "duree": 15,
+            "image": "img/Marche_Crabe.webp"
+        },
+        {
+            "nom": "Hanabi",
+            "categories": ["Stratégie", "Réflexion et tactique", "Coopératif"],
+            "age": "8+",
+            "nbjoueurs": "2-5",
+            "duree": 20,
+            "image": "img/Hanabi.webp"
+        },
+        {
+            "nom": "Take Time",
+            "categories": ["Ambiance", "Défis, énigmes et quizz", "Coopératif"],
+            "age": "10+",
+            "nbjoueurs": "2-4",
+            "duree": 30,
+            "image": "img/Take_Time.webp"
+        },
+        {
+            "nom": "The Mind",
+            "categories": ["Ambiance", "Bluff, hasard et intuition", "Coopératif"],
+            "age": "8+",
+            "nbjoueurs": "2-4",
+            "duree": 20,
+            "image": "img/The_Mind.webp"
+        },
+        {
+            "nom": "Tranquillité",
+            "categories": ["Stratégie", "Réflexion et tactique", "Coopératif"],
+            "age": "8+",
+            "nbjoueurs": "1-5",
+            "duree": 20,
+            "image": "img/Tranquillité.webp"
+        },
+        {
+            "nom": "Regicide",
+            "categories": ["Stratégie", "Guerres et combats", "Coopératif"],
+            "age": "10+",
+            "nbjoueurs": "1-4",
+            "duree": 20,
+            "image": "img/Regicide.webp"
+        },
+        {
+            "nom": "Bomb Busters",
+            "categories": ["Ambiance", "Défis, énigmes et quizz", "Coopératif"],
+            "age": "12+",
+            "nbjoueurs": "2-5",
+            "duree": 30,
+            "image": "img/Bomb_Busters.webp"
+        },
+        {
+            "nom": "Haters Party",
+            "categories": ["Ambiance", "Défis, énigmes et quizz"],
+            "age": "14+",
+            "nbjoueurs": "3-",
+            "duree": 20,
+            "image": "img/Haters_Party.jpg"
+        },
+        {
+            "nom": "Exploding Kittens",
+            "categories": ["Ambiance", "Délires et rigolades"],
+            "age": "7+",
+            "nbjoueurs": "2-5",
+            "duree": 15,
+            "image": "img/Exploding_Kittens.webp"
+        },
+        {
+            "nom": "Top Ten",
+            "categories": ["Ambiance", "Délires et rigolades"],
+            "age": "14+",
+            "nbjoueurs": "4-9",
+            "duree": 30,
+            "image": "img/Top_Ten.webp"
+        },
+        {
+            "nom": "Faux-Culte",
+            "categories": ["Ambiance", "Délires et rigolades"],
+            "age": "14+",
+            "nbjoueurs": "2-",
+            "duree": 20,
+            "image": "img/Faux-Culte.webp"
+        },
+        {
+            "nom": "Break The Code",
+            "categories": ["Ambiance", "Défis, énigmes et quizz"],
+            "age": "10+",
+            "nbjoueurs": "2-4",
+            "duree": 15,
+            "image": "img/Break_The_Code.webp"
+        },
+        {
+            "nom": "Kronologic",
+            "categories": ["Stratégie", "Énigmes et enquêtes"],
+            "age": "10+",
+            "nbjoueurs": "1-4",
+            "duree": 30,
+            "image": "img/Kronologic.webp"
+        },
+        {
+            "nom": "Unlock",
+            "categories": ["Stratégie", "Énigmes et enquêtes"],
+            "age": "10+",
+            "nbjoueurs": "2-6",
+            "duree": 60,
+            "image": "img/Unlock.webp"
+        },
+        {
+            "nom": "1%",
+            "categories": ["Ambiance", "Bluff, hasard et intuition"],
+            "age": "8+",
+            "nbjoueurs": "2-6",
+            "duree": 20,
+            "image": "img/1p.webp"
+        },
+        {
+            "nom": "Abra Chadabra",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "7+",
+            "nbjoueurs": "2-5",
+            "duree": 15,
+            "image": "img/Abra_Chadabra.webp"
+        },
+        {
+            "nom": "Les Cinq Rois",
+            "categories": ["Classique", "Jeux de cartes classiques"],
+            "age": "8+",
+            "nbjoueurs": "1-7",
+            "duree": 45,
+            "image": "img/Cinq_Rois.webp"
+        },
+        {
+            "nom": "Miams",
+            "categories": ["Stratégie", "Réflexion et tactique", "Dés"],
+            "age": "10+",
+            "nbjoueurs": "2-5",
+            "duree": 30,
+            "image": "img/Miams.webp"
+        },
+        {
+            "nom": "Wazabi",
+            "categories": ["Ambiance", "Bluff, hasard et intuition", "Dés"],
+            "age": "8+",
+            "nbjoueurs": "2-6",
+            "duree": 20,
+            "image": "img/Wazabi.webp"
+        },
+        {
+            "nom": "Trio",
+            "categories": ["Ambiance", "Bluff, hasard et intuition"],
+            "age": "7+",
+            "nbjoueurs": "3-6",
+            "duree": 15,
+            "image": "img/Trio.png"
+        },
+        {
+            "nom": "Quarto",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "8+",
+            "nbjoueurs": "2",
+            "duree": 15,
+            "image": "img/Quarto.webp"
+        },
+        {
+            "nom": "Nimalia",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "10+",
+            "nbjoueurs": "2-4",
+            "duree": 30,
+            "image": "img/Nimalia.jpg"
+        },
+        {
+            "nom": "Quoridor",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "8+",
+            "nbjoueurs": "2-4",
+            "duree": 15,
+            "image": "img/Quoridor.webp"
+        },
+        {
+            "nom": "Tantrix",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "6+",
+            "nbjoueurs": "1-4",
+            "duree": 30,
+            "image": "img/Tantrix.webp"
+        },
+        {
+            "nom": "Once Upon A Draft",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "10+",
+            "nbjoueurs": "2-6",
+            "duree": 25,
+            "image": "img/Once_Upon_A_Draft.webp"
+        },
+        {
+            "nom": "Flatiron",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "12+",
+            "nbjoueurs": "1-2",
+            "duree": 45,
+            "image": "img/Flatiron.webp"
+        },
+        {
+            "nom": "Symbiose",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "8+",
+            "nbjoueurs": "2-4",
+            "duree": 15,
+            "image": "img/Symbiose.webp"
+        },
+        {
+            "nom": "Popcorn",
+            "categories": ["Stratégie", "Gestion et développement"],
+            "age": "10+",
+            "nbjoueurs": "2-4",
+            "duree": 60,
+            "image": "img/Popcorn.webp"
+        },
+        {
+            "nom": "Dracula vs Van Helsing",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "10+",
+            "nbjoueurs": "2",
+            "duree": 30,
+            "image": "img/Dracula_Van_Helsing.webp"
+        },
+        {
+            "nom": "Carcassonne",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "7+",
+            "nbjoueurs": "2-6",
+            "duree": 35,
+            "image": "img/Carcassonne.webp"
+        },
+        {
+            "nom": "Château Combo",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "10+",
+            "nbjoueurs": "2-5",
+            "duree": 25,
+            "image": "img/Chateau_Combo.webp"
+        },
+        {
+            "nom": "Citadelles",
+            "categories": ["Ambiance", "Bluff, hasard et intuition"],
+            "age": "10+",
+            "nbjoueurs": "2-8",
+            "duree": 45,
+            "image": "img/Citadelles.webp"
+        },
+        {
+            "nom": "7 Wonders Duel",
+            "categories": ["Stratégie", "Gestion et développement"],
+            "age": "10+",
+            "nbjoueurs": "2",
+            "duree": 30,
+            "image": "img/7_Wonders_Duel.webp"
+        },
+        {
+            "nom": "L'Île Interdite",
+            "categories": ["Stratégie", "Aventure, course et simulation"],
+            "age": "10+",
+            "nbjoueurs": "2-4",
+            "duree": 30,
+            "image": "img/Ile_Interdite.webp"
+        },
+        {
+            "nom": "6 Qui Prend !",
+            "categories": ["Ambiance", "Bluff, hasard et intuition"],
+            "age": "10+",
+            "nbjoueurs": "2-10",
+            "duree": 30,
+            "image": "img/6_qui_prend.webp"
+        },
+        {
+            "nom": "Les Aventuriers du Rail",
+            "categories": ["Stratégie", "Aventure, course et simulation"],
+            "age": "8+",
+            "nbjoueurs": "2-5",
+            "duree": 60,
+            "image": "img/Aventuriers_Rail.webp"
+        },
+        {
+            "nom": "Noé",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "7+",
+            "nbjoueurs": "2-5",
+            "duree": 30,
+            "image": "img/Noe.jpg"
+        },
+        {
+            "nom": "Rummikub",
+            "categories": ["Classique", "Jeux de chiffres et lettres"],
+            "age": "7+",
+            "nbjoueurs": "2-4",
+            "duree": 45,
+            "image": "img/Rummikub.webp"
+        },
+        {
+            "nom": "Skyjo",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "8+",
+            "nbjoueurs": "2-8",
+            "duree": 30,
+            "image": "img/Skyjo.webp"
+        },
+        {
+            "nom": "Splendor Duel",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "10+",
+            "nbjoueurs": "2",
+            "duree": 30,
+            "image": "img/Splendor_Duel.webp"
+        },
+        {
+            "nom": "For A Crown",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "8+",
+            "nbjoueurs": "3-5",
+            "duree": 30,
+            "image": "img/For_A_Crown.webp"
+        },
+        {
+            "nom": "Zenith",
+            "categories": ["Stratégie", "Guerres et combats"],
+            "age": "10+",
+            "nbjoueurs": "2-4",
+            "duree": 30,
+            "image": "img/Zenith.webp"
+        },
+        {
+            "nom": "Star Wars : Bounty Hunters",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "10+",
+            "nbjoueurs": "2-6",
+            "duree": 20,
+            "image": "img/Bounty_Hunters.jpg"
+        },
+        {
+            "nom": "Moustache",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "10+",
+            "nbjoueurs": "3-6",
+            "duree": 20,
+            "image": "img/Moustache.webp"
+        },
+        {
+            "nom": "7 Wonders Duel : Agora",
+            "categories": ["Stratégie", "Gestion et développement"],
+            "age": "10+",
+            "nbjoueurs": "2",
+            "duree": 30,
+            "image": "img/7_Wonders_Duel_Agora.webp"
+        },
+        {
+            "nom": "Boop",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "10+",
+            "nbjoueurs": "2",
+            "duree": 20,
+            "image": "img/Boop.webp"
+        },
+        {
+            "nom": "Les Bâtisseurs : Moyen-âge",
+            "categories": ["Stratégie", "Gestion et développement"],
+            "age": "10+",
+            "nbjoueurs": "2-4",
+            "duree": 30,
+            "image": "img/Batisseurs.webp"
+        },
+        {
+            "nom": "Les Inventeurs",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "10+",
+            "nbjoueurs": "2-5",
+            "duree": 40,
+            "image": "img/Inventeurs.jpg"
+        },
+        {
+            "nom": "Pixies",
+            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "age": "8+",
+            "nbjoueurs": "2-5",
+            "duree": 30,
+            "image": "img/Pixies.webp"
+        }
+    ]
+}
