@@ -54,22 +54,6 @@
             "image": "img/Jungle_Speed.webp"
         },
         {
-            "nom": "The Crew",
-            "categories": ["Ambiance", "Bluff, hasard et intuition", "Coopératif"],
-            "age": "10+",
-            "nbjoueurs": "3-5",
-            "duree": 20,
-            "image": "img/The_Crew.webp"
-        },
-        {
-            "nom": "La Marche du Crabe",
-            "categories": ["Stratégie", "Réflexion et tactique", "Coopératif"],
-            "age": "8+",
-            "nbjoueurs": "2",
-            "duree": 15,
-            "image": "img/Marche_Crabe.webp"
-        },
-        {
             "nom": "Hanabi",
             "categories": ["Stratégie", "Réflexion et tactique", "Coopératif"],
             "age": "8+",
@@ -148,14 +132,6 @@
             "nbjoueurs": "2-",
             "duree": 20,
             "image": "img/Faux-Culte.webp"
-        },
-        {
-            "nom": "Break The Code",
-            "categories": ["Ambiance", "Défis, énigmes et quizz"],
-            "age": "10+",
-            "nbjoueurs": "2-4",
-            "duree": 15,
-            "image": "img/Break_The_Code.webp"
         },
         {
             "nom": "Kronologic",
@@ -366,14 +342,6 @@
             "image": "img/Rummikub.webp"
         },
         {
-            "nom": "Skyjo",
-            "categories": ["Stratégie", "Réflexion et tactique"],
-            "age": "8+",
-            "nbjoueurs": "2-8",
-            "duree": 30,
-            "image": "img/Skyjo.webp"
-        },
-        {
             "nom": "Splendor Duel",
             "categories": ["Stratégie", "Réflexion et tactique"],
             "age": "10+",
@@ -452,6 +420,14 @@
             "nbjoueurs": "2-5",
             "duree": 30,
             "image": "img/Pixies.webp"
+        },
+        {
+            "nom": "Dune",
+            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "age": "14+",
+            "nbjoueurs": "2-6",
+            "duree": 60,
+            "image": "img/Dune.webp"
         }
     ]
 }
