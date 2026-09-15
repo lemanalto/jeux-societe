@@ -58,6 +58,11 @@
             display: flex;
             flex-direction: column;
         }
+        
+        .game-card.emprunte {
+            opacity: 0.45; 
+            filter: grayscale(100%);
+        }
 
         /* IMAGE */
         .game-card img {
@@ -175,29 +180,73 @@
         async function loadGames() {
             const params = new URLSearchParams(window.location.search);
             const u = params.get("u") || "1";
-            const response = await fetch('jeux'+u+'.json');
+
+            // JSON principal
+            const response = await fetch('jeux' + u + '.json');
+            if (!response.ok) {
+                return {filtres: {ages: [7,77], joueurs: [1],duree: [6,66]}, jeux: []};
+            }
             const data = await response.json();
+
+            // Autres json, jeux avec emprunt=u
+            let i = 1;
+            while (true) {
+                // Skip i=u
+                if (String(i) === String(u)) {
+                    i++;
+                    continue;
+                }
+                
+                // Lecture json
+                let responseList;
+                responseList = await fetch('jeux' + i + '.json');
+                if (!responseList.ok) {
+                    break;
+                }
+                const listData = await responseList.json();
+
+                // Ajouter uniquement les jeux empruntés par u
+                const jeuxEmpruntes = listData.jeux
+                    .filter(game => String(game.emprunt || "") === String(u))
+                    .map(game => ({
+                        ...game,
+                        emprunt: ""
+                    }));
+                console.log(jeuxEmpruntes)
+                data.jeux.push(...jeuxEmpruntes);
+                i++;
+            }
+
             return data;
         }
 
         // Fonction pour afficher les jeux
         function displayGames(games) {
             const gameList = document.getElementById('gameList');
-            gameList.innerHTML = ''; // Clear previous games
+            gameList.innerHTML = '';
+
             games.forEach(game => {
                 const gameCard = document.createElement('div');
                 gameCard.classList.add('game-card');
+
+                const isEmprunte = game.emprunt !== undefined && game.emprunt !== null && game.emprunt !== '';
+
                 gameCard.innerHTML = `
-                    <img src="${game.image}" alt="${game.nom}">
-                    <h3>${game.nom}</h3>
-                    <p>Age : ${game.age}</p>
-                    <p>Joueurs : ${game.nbjoueurs}</p>
-                    <p>Durée : ${game.duree !== 0 ? game.duree + ' minutes' : ''}</p> 
-                    <!-- <p>Catégories : ${game.categories.join(', ')}</p> -->
+                    <div class="game-card ${isEmprunte ? 'emprunte' : ''}">
+                        <img 
+                            src="${game.image}" 
+                            alt="${game.nom}"
+                        >
+                        <h3>${game.nom}</h3>
+                        <p>Age : ${game.age}</p>
+                        <p>Joueurs : ${game.nbjoueurs}</p>
+                        <p>Durée : ${game.duree !== 0 ? game.duree + ' minutes' : ''}</p>
+                    </div>
                 `;
+
                 gameList.appendChild(gameCard);
             });
-            
+
             // Afficher le nombre de jeux
             const gameCount = document.getElementById('gameCount');
             gameCount.textContent = `${games.length} jeu${games.length > 1 ? 'x' : ''} affiché${games.length > 1 ? 's' : ''}`;
