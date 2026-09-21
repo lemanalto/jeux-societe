@@ -155,7 +155,8 @@
             "age": "8+",
             "nbjoueurs": "2-6",
             "duree": 20,
-            "image": "img/1p.webp"
+            "image": "img/1p.webp",
+            "emprunt": 2
         },
         {
             "nom": "Abra Chadabra",
@@ -307,7 +308,8 @@
             "age": "10+",
             "nbjoueurs": "2-4",
             "duree": 30,
-            "image": "img/Ile_Interdite.webp"
+            "image": "img/Ile_Interdite.webp",
+            "emprunt": 2
         },
         {
             "nom": "6 Qui Prend !",

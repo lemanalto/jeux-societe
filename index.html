@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,6 +27,12 @@
             font-size: 1.8rem;
             font-weight: 600;
             letter-spacing: 0.5px;
+        }
+        
+        .game-counts {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
         }
 
         .game-count {
@@ -139,11 +146,15 @@
         }
     </style>
 </head>
+
 <body>
 
     <header>
         <h1>🎲 Jeux de Société 🎲</h1>
-        <div id="gameCount" class="game-count"></div>
+        <div class="game-counts">
+            <div id="gameCount" class="game-count"></div>
+            <div id="gameCount2" class="game-count"></div>
+        </div>
     </header>
 
     <div class="filters">
@@ -165,6 +176,7 @@
         </select>
         <select id="sortBy">
             <option value="">Trier par</option>
+            <option value="age", disabled=true>────────</option>
             <option value="age">Âge</option>
             <option value="players">Nombre de joueurs</option>
             <option value="duration">Durée</option>
@@ -184,10 +196,16 @@
             // JSON principal
             const response = await fetch('jeux' + u + '.json');
             if (!response.ok) {
-                return {filtres: {ages: [7,77], joueurs: [1],duree: [6,66]}, jeux: []};
+                return {filtres: {ages: [7,77], joueurs: [1],duree: [6,66]}, jeux: [], nbJeux: 0};
             }
             const data = await response.json();
-
+            data.nbJeux = data.jeux.length;
+            data.jeux.forEach(jeu => {
+              if (jeu.emprunt && jeu.emprunt !== "") {
+                jeu.categories.push("Jeux prêtés");
+              }
+            });
+            
             // Autres json, jeux avec emprunt=u
             let i = 1;
             while (true) {
@@ -210,9 +228,10 @@
                     .filter(game => String(game.emprunt || "") === String(u))
                     .map(game => ({
                         ...game,
+                        nom: game.nom + "*", 
+                        categories: [...game.categories, "Jeux empruntés"],
                         emprunt: ""
                     }));
-                console.log(jeuxEmpruntes)
                 data.jeux.push(...jeuxEmpruntes);
                 i++;
             }
@@ -248,7 +267,7 @@
             });
 
             // Afficher le nombre de jeux
-            const gameCount = document.getElementById('gameCount');
+            const gameCount = document.getElementById('gameCount2');
             gameCount.textContent = `${games.length} jeu${games.length > 1 ? 'x' : ''} affiché${games.length > 1 ? 's' : ''}`;
         }
 
@@ -260,12 +279,21 @@
             return option;
         }
 
+        // Fonction générique pour créer un séparateur
+        function addSeparator(filter) {
+            const separator = document.createElement("option");
+            separator.textContent = "────────";
+            separator.disabled = true;
+            filter.appendChild(separator);
+        }
+
         // Fonction pour générer dynamiquement les filtres d'âge
         function generateAgeFilters(ages) {
             const ageFilter = document.getElementById('ageFilter');
             ages.sort((a, b) => a - b); // Trier les âges
 
             // Créer les filtres d'âge
+            addSeparator(ageFilter);
             ageFilter.appendChild(createOption(`0-${ages[0]}`, `- ${ages[0]} ans`));
             for (let i = 0; i < ages.length - 1; i++) {
                 ageFilter.appendChild(createOption(`${ages[i]}-${ages[i + 1]}`, `${ages[i]}-${ages[i + 1]} ans`));
@@ -278,8 +306,25 @@
             const categoryFilter = document.getElementById('categoryFilter');
             const uniqueCategories = [...new Set(categories)]; // Filtrer les catégories uniques
 
-            uniqueCategories.sort((a, b) => a.localeCompare(b));
+            uniqueCategories.sort((a, b) => {
+                if (a === "Jeux prêtés") return 1;
+                if (b === "Jeux prêtés") return -1;
+                if (a === "Jeux empruntés") return 1;
+                if (b === "Jeux empruntés") return -1;
+                return a.localeCompare(b);
+            });
+            <!-- uniqueCategories.sort((a, b) => a.localeCompare(b)); -->
+            
+            addSeparator(categoryFilter);
+            let separatorAdded = false;
             uniqueCategories.forEach(category => {
+                if (
+                    !separatorAdded && (category === "Jeux empruntés" || category === "Jeux prêtés")
+                ) {
+                    addSeparator(categoryFilter);
+                    separatorAdded = true;
+                }
+                
                 categoryFilter.appendChild(createOption(category, category));
             });
         }
@@ -288,6 +333,7 @@
         function generatePlayersFilters(players) {
             const playersFilter = document.getElementById('playersFilter');
             
+            addSeparator(playersFilter);
             for (let i = 0; i < players.length - 1; i++) {
                 playersFilter.appendChild(createOption(`${players[i]}`, `${players[i]} joueurs`));
             }
@@ -300,6 +346,7 @@
             durations.sort((a, b) => a - b); // Trier les durées
 
             // Créer les filtres de durée
+            addSeparator(durationFilter);
             durationFilter.appendChild(createOption(`1-${durations[0]}`, `< ${durations[0]} minutes`)); 
             for (let i = 0; i < durations.length - 1; i++) {
                 durationFilter.appendChild(createOption(`${durations[i]}-${durations[i + 1]}`, `${durations[i]} - ${durations[i + 1]} minutes`));
@@ -453,6 +500,9 @@
                 displayGames(sortedGames);
             });
 
+            const gameCount = document.getElementById('gameCount');
+            gameCount.textContent = `${data.nbJeux} jeu${data.nbJeux > 1 ? 'x' : ''} possédé${data.nbJeux > 1 ? 's' : ''}`;
+
             // Afficher tous les jeux au début avec tri alphabétique par défaut
             const sortedGames = sortGames(jeux, 'alphabetical');
             displayGames(sortedGames);
@@ -460,4 +510,5 @@
     </script>
 
 </body>
+
 </html>

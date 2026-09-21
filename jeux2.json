@@ -155,7 +155,8 @@
             "age": "7+",
             "nbjoueurs": "2-6",
             "duree": 20,
-            "image": "img/DTC.jpg"
+            "image": "img/DTC.jpg",
+            "emprunt": 1
         },
         {
             "nom": "Las Vegas",
@@ -171,7 +172,8 @@
             "age": "10+",
             "nbjoueurs": "2-4",
             "duree": 30,
-            "image": "img/Arctic.webp"
+            "image": "img/Arctic.webp",
+            "emprunt": 1
         },
         {
             "nom": "Chabyrinthe",
@@ -772,6 +774,46 @@
             "nbjoueurs": "2-8",
             "duree": 10,
             "image": "img/Barbecue_Party.webp"
+        },
+        {
+            "nom": "7 Wonders",
+            "categories": ["Stratégie", "Gestion et développement"],
+            "age": "10+",
+            "nbjoueurs": "3-7",
+            "duree": 30,
+            "image": "img/7_Wonders.webp"
+        },
+        {
+            "nom": "Mycelia",
+            "categories": ["Stratégie", "Aventure, course et simulation"],
+            "age": "9+",
+            "nbjoueurs": "1-4",
+            "duree": 45,
+            "image": "img/Mycelia.webp"
+        },
+        {
+            "nom": "Flip 7",
+            "categories": ["Ambiance", "Bluff, hasard et intuition"],
+            "age": "8+",
+            "nbjoueurs": "3-99",
+            "duree": 20,
+            "image": "img/Flip_7.webp"
+        },
+        {
+            "nom": "Le Roi des Nains",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "10+",
+            "nbjoueurs": "3-5",
+            "duree": 30,
+            "image": "img/Roi_des_Nains.webp"
+        },
+        {
+            "nom": "Courtisans",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "8+",
+            "nbjoueurs": "2-5",
+            "duree": 20,
+            "image": "img/Courtisans.webp"
         }
     ]
 }
