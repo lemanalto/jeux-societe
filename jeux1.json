@@ -430,6 +430,14 @@
             "nbjoueurs": "2-6",
             "duree": 60,
             "image": "img/Dune.webp"
+        },
+        {
+            "nom": "Dnup",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "8+",
+            "nbjoueurs": "2-5",
+            "duree": 15,
+            "image": "img/Dnup.webp"
         }
     ]
 }
