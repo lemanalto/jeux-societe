@@ -1531,8 +1531,11 @@
 
         });
 
-
-        // Fermer les autres panneaux lorsqu'on en ouvre un
+        // ==========================================
+        // FERMETURE DES LISTES
+        // ==========================================
+        
+        // A l'ouverture d'une autre
         document.querySelectorAll(".filter-group").forEach(group => {
 
             group.addEventListener("toggle", () => {
@@ -1552,6 +1555,28 @@
             });
 
         });
+        
+        // Au clic ailleurs
+        document.addEventListener("click", event => {
+
+            document.querySelectorAll(".filter-group").forEach(group => {
+
+                if (!group.contains(event.target)) {
+                    group.open = false;
+                }
+
+            });
+
+        });
+        
+        // Au scroll
+        window.addEventListener("scroll", () => {
+
+            document.querySelectorAll(".filter-group[open]").forEach(group => {
+                group.open = false;
+            });
+
+        }, { passive: true });
 
 
         // ==========================================
