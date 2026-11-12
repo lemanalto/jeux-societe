@@ -6,15 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeux de Société</title>
     <link rel="icon" href="img/_favicon.ico" type="image/ico">
+
     <style>
+        :root {
+            --blue: #2563eb;
+            --blue-light: #60a5fa;
+            --text: #333;
+            --text-light: #666;
+            --border: #d1d5db;
+            --background: #f4f4f4;
+            --white: #fff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: var(--background);
+            color: var(--text);
         }
 
+        /* HEADER */
         header {
+            position: relative;
             background: linear-gradient(135deg, #1f2937, #111827);
             color: white;
             text-align: center;
@@ -28,47 +46,236 @@
             font-weight: 600;
             letter-spacing: 0.5px;
         }
-        
+
         .game-counts {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .game-count {
             display: inline-block;
             margin-top: 8px;
-            padding: 4px 12px;
+            padding: 5px 13px;
             border-radius: 20px;
             background: rgba(255, 255, 255, 0.12);
-            color: #d1d5db;
+            color: var(--border);
             font-size: 0.9rem;
+        }
+
+        /* NAVIGATION LUDOTHEQUES */
+        .libraries {
+            position: absolute;
+            top: 12px;
+            right: 15px;
+            display: flex;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 6px;
+            max-width: 35%;
+        }
+
+        .libraries a {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 20px;
+            color: #e5e7eb;
+            background: rgba(255, 255, 255, 0.10);
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+
+        .libraries a:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .libraries a.active {
+            background: var(--blue);
+            color: white;
+            font-weight: bold;
+        }
+
+        /* BARRE DES FILTRES */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin: 15px 10px;
+        }
+
+        /* PANNEAUX DE FILTRES */
+        .filter-group {
+            position: relative;
+        }
+
+        .filter-group summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 9px 28px 9px 12px;
+            font-size: 14px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            background: var(--white);
+            color: var(--text);
+            white-space: nowrap;
+            user-select: none;
+            min-width: 140px;
+            text-align: left;
+            position: relative;
+        }
+
+        .filter-group summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .filter-group summary::after {
+            content: "▾";
+            color: var(--text-light);
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .filter-group[open] summary {
+            border-color: var(--blue);
+        }
+
+        .filter-group[open] summary::after {
+            content: "▴";
+        }
+
+        .filter-group .filter-options {
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 0;
+            z-index: 20;
+            width: max-content;
+            min-width: 150px;
+            max-height: 280px;
+            overflow-y: auto;
+            padding: 10px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            white-space: nowrap;
+            scrollbar-gutter: stable;
+        }
+
+        .filter-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 5px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .filter-group label:hover {
+            background: #f3f4f6;
+        }
+
+        .filter-group input[type="checkbox"] {
+            width: 17px;
+            height: 17px;
+            margin: 0;
+            accent-color: var(--blue);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        /* BOUTONS */
+        .action-button {
+            border: none;
+            border-radius: 7px;
+            padding: 10px 13px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .action-button:hover {
+            transform: translateY(-1px);
+        }
+
+        .reset-button,
+        .random-button {
+            flex: 0 1 auto;
+            width: auto;
+            min-width: 150px;
+            max-width: 100%;
+            padding: 10px 12px;
+            white-space: normal;
+            text-align: center;
+        }
+
+        .reset-button {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        .reset-button:hover {
+            background: #d1d5db;
+        }
+
+        .random-button {
+            background: var(--blue-light);
+            color: white;
+        }
+
+        .random-button:hover {
+            background: var(--blue);
         }
 
         /* GRID PRINCIPAL */
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 12px;
+            gap: 14px;
             padding: 16px;
         }
 
-        /* CARTE */
+        /* CARTES */
         .game-card {
-            background: white;
+            background: var(--white);
             padding: 12px;
-            border-radius: 10px;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-
+            border-radius: 12px;
+            box-shadow: 0 3px 7px rgba(0, 0, 0, 0.08);
             text-align: center;
-
             display: flex;
             flex-direction: column;
+            min-width: 0;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        
+
+        .game-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.13);
+        }
+
         .game-card.emprunte {
-            opacity: 0.45; 
+            opacity: 0.5;
             filter: grayscale(100%);
+        }
+
+        /* CARTE SELECTIONNEE AU HASARD */
+        .game-card.selected {
+            outline: 3px solid var(--blue);
+            outline-offset: 2px;
+            animation: selectedPulse 0.8s ease-in-out 2;
+        }
+
+        @keyframes selectedPulse {
+            50% {
+                box-shadow: 0 0 16px rgba(37, 99, 235, 0.55);
+            }
         }
 
         /* IMAGE */
@@ -77,59 +284,123 @@
             height: 160px;
             object-fit: contain;
             border-radius: 6px;
-            padding : 10px 0px;
+            padding: 10px 0;
         }
 
         /* TEXTE */
         .game-card .text-content {
             display: flex;
             flex-direction: column;
-            margin-top: 10px;
             flex-grow: 1;
+            margin-top: 8px;
         }
 
         .game-card h3 {
             font-size: 16px;
-            margin: 6px 0;
+            margin: 6px 0 10px;
             line-height: 1.3;
-
             min-height: 2.6em;
-
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
         }
 
         .game-card p {
             font-size: 13px;
-            color: #666;
+            color: var(--text-light);
             margin: 2px 0;
             line-height: 1.4;
             text-align: left;
         }
 
-        /* FILTRES */
-        .filters {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 15px 0;
+        /* MESSAGE VIDE / ERREUR */
+        .empty-message {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: var(--text-light);
+            padding: 40px 15px;
+            font-size: 16px;
         }
 
-        select {
-            padding: 8px;
-            font-size: 14px;
-            margin: 5px;
-            min-width: 120px;
+        .error-message {
+            color: #b91c1c;
         }
 
-        /* MOBILE : 2 colonnes fixes */
+        /* TABLETTES ET MOBILES */
+        @media (max-width: 700px) {
+
+            header {
+                padding-top: 55px;
+            }
+
+            .libraries {
+                top: 10px;
+                right: 10px;
+                max-width: calc(100% - 20px);
+            }
+
+            .filters {
+                gap: 7px;
+                margin: 12px 8px;
+                justify-content: center;
+            }
+
+            .filter-group {
+                flex: 1 1 calc(50% - 7px);
+                min-width: 0;
+            }
+
+            .filter-group summary {
+                width: 100%;
+                min-width: 0;
+                padding: 9px 25px 9px 8px;
+                text-align: center;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .filter-group .filter-options {
+                left: 0;
+                right: auto;
+                max-width: calc(100vw - 20px);
+                min-width: min(150px, calc(100vw - 20px));
+                white-space: normal;
+            }
+
+            /* Les panneaux situés dans la moitié droite */
+            .filter-group:nth-child(even) .filter-options {
+                left: auto;
+                right: 0;
+            }
+
+            .reset-button,
+            .random-button {
+                flex: 1 1 calc(50% - 7px);
+                min-width: 0;
+                max-width: 100%;
+                white-space: normal;
+                padding: 10px 6px;
+                text-align: center;
+            }
+
+        }
+
+
+        /* PETITS MOBILES */
         @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
             .container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
                 padding: 10px;
+            }
+
+            .game-card {
+                padding: 9px;
             }
 
             .game-card img {
@@ -143,6 +414,7 @@
             .game-card p {
                 font-size: 12px;
             }
+
         }
     </style>
 </head>
@@ -150,365 +422,1191 @@
 <body>
 
     <header>
+
+        <nav id="libraries" class="libraries"></nav>
+
         <h1>🎲 Jeux de Société 🎲</h1>
+
         <div class="game-counts">
             <div id="gameCount" class="game-count"></div>
             <div id="gameCount2" class="game-count"></div>
         </div>
+
     </header>
 
+
+    <!-- FILTRES ET BOUTONS -->
     <div class="filters">
-        <select id="ageFilter">
-            <option value="">Filtrer par âge</option>
-            <!-- Les filtres d'âge seront ajoutés dynamiquement -->
-        </select>
-        <select id="categoryFilter">
-            <option value="">Filtrer par catégorie</option>
-            <!-- Les filtres de catégories seront ajoutés dynamiquement -->
-        </select>
-        <select id="playersFilter">
-            <option value="">Filtrer par nombre de joueurs</option>
-            <!-- Les filtres de joueurs seront ajoutés dynamiquement -->
-        </select>
-        <select id="durationFilter">
-            <option value="">Filtrer par durée</option>
-            <!-- Les filtres de durée seront ajoutés dynamiquement -->
-        </select>
-        <select id="sortBy">
-            <option value="">Trier par</option>
-            <option value="age", disabled=true>────────</option>
-            <option value="age">Âge</option>
-            <option value="players">Nombre de joueurs</option>
-            <option value="duration">Durée</option>
-        </select>
+
+        <details class="filter-group">
+            <summary id="ageSummary">Âge</summary>
+            <div class="filter-options" id="ageFilter"></div>
+        </details>
+
+        <details class="filter-group">
+            <summary id="categorySummary">Catégorie</summary>
+            <div class="filter-options" id="categoryFilter"></div>
+        </details>
+
+        <details class="filter-group">
+            <summary id="playersSummary">Joueurs</summary>
+            <div class="filter-options" id="playersFilter"></div>
+        </details>
+
+        <details class="filter-group">
+            <summary id="durationSummary">Durée</summary>
+            <div class="filter-options" id="durationFilter"></div>
+        </details>
+
+        <!-- TRI A SELECTION UNIQUE -->
+        <details class="filter-group sort-group">
+            <summary id="sortSummary">Tri</summary>
+            <div class="filter-options" id="sortFilter"></div>
+        </details>
+
+        <button
+            type="button"
+            id="resetFilters"
+            class="action-button reset-button">
+            ↺ Réinitialiser
+        </button>
+
+        <button
+            type="button"
+            id="randomGame"
+            class="action-button random-button">
+            🎯 Hasard
+        </button>
+
     </div>
 
+
+    <!-- LISTE DES JEUX -->
     <div class="container" id="gameList">
-        <!-- Les cartes des jeux de société seront affichées ici -->
+        <div class="empty-message">Chargement des jeux...</div>
     </div>
+
 
     <script>
-        // Fonction pour charger le fichier JSON
-        async function loadGames() {
-            const params = new URLSearchParams(window.location.search);
-            const u = params.get("u") || "1";
 
-            // JSON principal
-            const response = await fetch('jeux' + u + '.json');
-            if (!response.ok) {
-                return {filtres: {ages: [7,77], joueurs: [1],duree: [6,66]}, jeux: [], nbJeux: 0};
+        // ==========================================
+        // VARIABLES PRINCIPALES
+        // ==========================================
+
+        const params = new URLSearchParams(window.location.search);
+        const uParam = params.get("u") || "1";
+
+        const u = /^\d+$/.test(uParam)
+            ? String(Number(uParam))
+            : "1";
+
+        let jeux = [];
+        let filtres = {};
+        let nbJeuxPossedes = 0;
+        let currentGames = [];
+
+
+        // ==========================================
+        // OUTILS
+        // ==========================================
+
+        function createOption(value, text, type = "checkbox") {
+
+            const label = document.createElement("label");
+
+            const checkbox = document.createElement("input");
+            checkbox.type = type;
+            checkbox.value = value;
+
+            const span = document.createElement("span");
+            span.textContent = text;
+
+            label.appendChild(checkbox);
+            label.appendChild(span);
+
+            return label;
+
+        }
+
+
+        function setMessage(message, isError = false) {
+
+            const gameList = document.getElementById("gameList");
+
+            gameList.innerHTML = "";
+
+            const div = document.createElement("div");
+
+            div.className = "empty-message";
+
+            if (isError) {
+                div.classList.add("error-message");
             }
+
+            div.textContent = message;
+
+            gameList.appendChild(div);
+
+        }
+
+
+        // ==========================================
+        // CHARGEMENT ET VERIFICATION D'UN JSON
+        // ==========================================
+
+        async function fetchGamesFile(number) {
+
+            //const response = await fetch("jeux" + number + ".json");
+            const response = await fetch("jeux" + number + ".json?v=" + Date.now(), { cache: "no-store" });
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Impossible de charger jeux" + number + ".json"
+                );
+
+            }
+
             const data = await response.json();
-            data.nbJeux = data.jeux.length;
-            data.jeux.forEach(jeu => {
-              if (jeu.emprunt && jeu.emprunt !== "") {
-                jeu.categories.push("Jeux prêtés");
-              }
+
+            if (
+                !data ||
+                typeof data !== "object" ||
+                !Array.isArray(data.jeux)
+            ) {
+
+                throw new Error(
+                    "Format JSON invalide dans jeux" + number + ".json"
+                );
+
+            }
+
+            data.jeux = data.jeux
+                .filter(game => game && typeof game === "object")
+                .map(game => ({
+
+                    ...game,
+
+                    nom: String(game.nom || "Jeu sans nom"),
+                    age: String(game.age ?? ""),
+                    nbjoueurs: String(game.nbjoueurs ?? ""),
+                    duree: Number(game.duree) || 0,
+                    image: String(game.image || ""),
+                    emprunt: game.emprunt ?? "",
+
+                    categories: Array.isArray(game.categories)
+                        ? game.categories.map(String)
+                        : []
+
+                }));
+
+            return data;
+
+        }
+
+
+        // ==========================================
+        // CHARGEMENT DES JEUX
+        // ==========================================
+
+        async function loadGames() {
+
+            const data = await fetchGamesFile(u);
+
+            jeux = data.jeux;
+
+            nbJeuxPossedes = jeux.length;
+
+            filtres = {
+
+                ages: Array.isArray(data.filtres?.ages)
+                    ? [...data.filtres.ages]
+                    : [7, 77],
+
+                joueurs: Array.isArray(data.filtres?.joueurs)
+                    ? [...data.filtres.joueurs]
+                    : [1],
+
+                duree: Array.isArray(data.filtres?.duree)
+                    ? [...data.filtres.duree]
+                    : [6, 66]
+
+            };
+
+            // Ajouter la catégorie "Jeux prêtés"
+            jeux.forEach(game => {
+
+                if (game.emprunt) {
+                    game.categories.push("Jeux prêtés");
+                }
+
             });
-            
-            // Autres json, jeux avec emprunt=u
+
+            // Numéros des ludothèques disponibles
+            const libraries = [Number(u)];
+
             let i = 1;
+
             while (true) {
-                // Skip i=u
-                if (String(i) === String(u)) {
+
+                if (String(i) === u) {
                     i++;
                     continue;
                 }
-                
-                // Lecture json
-                let responseList;
-                responseList = await fetch('jeux' + i + '.json');
-                if (!responseList.ok) {
-                    break;
-                }
-                const listData = await responseList.json();
 
-                // Ajouter uniquement les jeux empruntés par u
+                let listData;
+
+                try {
+
+                    listData = await fetchGamesFile(i);
+
+                } catch (error) {
+
+                    if (error.message.startsWith("Impossible de charger")) {
+                        break;
+                    }
+
+                    console.warn(error.message);
+
+                    i++;
+                    continue;
+
+                }
+
+                libraries.push(i);
+
+                // Jeux empruntés par la ludothèque actuelle
                 const jeuxEmpruntes = listData.jeux
-                    .filter(game => String(game.emprunt || "") === String(u))
+
+                    .filter(game =>
+                        String(game.emprunt || "") === u
+                    )
+
                     .map(game => ({
+
                         ...game,
-                        nom: game.nom + "*", 
-                        categories: [...game.categories, "Jeux empruntés"],
+
+                        nom: game.nom + "*",
+
+                        categories: [
+                            ...game.categories,
+                            "Jeux empruntés"
+                        ],
+
                         emprunt: ""
+
                     }));
-                data.jeux.push(...jeuxEmpruntes);
+
+                jeux.push(...jeuxEmpruntes);
+
                 i++;
+
             }
 
-            return data;
+            generateLibraryLinks(libraries);
+
         }
 
-        // Fonction pour afficher les jeux
-        function displayGames(games) {
-            const gameList = document.getElementById('gameList');
-            gameList.innerHTML = '';
 
-            games.forEach(game => {
-                const gameCard = document.createElement('div');
-                gameCard.classList.add('game-card');
+        // ==========================================
+        // NAVIGATION ENTRE LUDOTHEQUES
+        // ==========================================
 
-                const isEmprunte = game.emprunt !== undefined && game.emprunt !== null && game.emprunt !== '';
+        function generateLibraryLinks(libraries) {
 
-                gameCard.innerHTML = `
-                    <div class="game-card ${isEmprunte ? 'emprunte' : ''}">
-                        <img 
-                            src="${game.image}" 
-                            alt="${game.nom}"
-                        >
-                        <h3>${game.nom}</h3>
-                        <p>Age : ${game.age}</p>
-                        <p>Joueurs : ${game.nbjoueurs}</p>
-                        <p>Durée : ${game.duree !== 0 ? game.duree + ' minutes' : ''}</p>
-                    </div>
-                `;
+            const nav = document.getElementById("libraries");
 
-                gameList.appendChild(gameCard);
+            nav.innerHTML = "";
+
+            libraries.sort((a, b) => a - b);
+
+            libraries.forEach(number => {
+
+                const link = document.createElement("a");
+
+                link.href = "?u=" + number;
+
+                link.textContent = "" + number;
+
+                if (String(number) === u) {
+                    link.classList.add("active");
+                }
+
+                nav.appendChild(link);
+
             });
 
-            // Afficher le nombre de jeux
-            const gameCount = document.getElementById('gameCount2');
-            gameCount.textContent = `${games.length} jeu${games.length > 1 ? 'x' : ''} affiché${games.length > 1 ? 's' : ''}`;
         }
 
-        // Fonction générique pour créer une option
-        function createOption(value, text) {
-            const option = document.createElement('option');
-            option.value = value;
-            option.textContent = text;
-            return option;
+
+        // ==========================================
+        // GENERATION DES FILTRES
+        // ==========================================
+
+        function generateCheckboxFilters(containerId, summaryId, items) {
+
+            const container = document.getElementById(containerId);
+
+            container.innerHTML = "";
+
+            items.forEach(item => {
+
+                container.appendChild(
+                    createOption(item.value, item.text)
+                );
+
+            });
+
+            updateFilterSummary(containerId, summaryId);
+
         }
 
-        // Fonction générique pour créer un séparateur
-        function addSeparator(filter) {
-            const separator = document.createElement("option");
-            separator.textContent = "────────";
-            separator.disabled = true;
-            filter.appendChild(separator);
+
+        // ==========================================
+        // TITRES DES FILTRES
+        // ==========================================
+
+        function updateFilterSummary(containerId, summaryId) {
+
+            const container = document.getElementById(containerId);
+            const summary = document.getElementById(summaryId);
+
+            const checked = container.querySelectorAll(
+                'input[type="checkbox"]:checked'
+            ).length;
+
+            const titles = {
+                ageFilter: "Âge",
+                categoryFilter: "Catégorie",
+                playersFilter: "Joueurs",
+                durationFilter: "Durée"
+            };
+
+            const title = titles[containerId];
+
+            summary.textContent = checked > 0
+                ? title + " (" + checked + ")"
+                : title;
+
         }
 
-        // Fonction pour générer dynamiquement les filtres d'âge
+
+        // ==========================================
+        // FILTRE AGE
+        // ==========================================
+
         function generateAgeFilters(ages) {
-            const ageFilter = document.getElementById('ageFilter');
-            ages.sort((a, b) => a - b); // Trier les âges
 
-            // Créer les filtres d'âge
-            addSeparator(ageFilter);
-            ageFilter.appendChild(createOption(`0-${ages[0]}`, `- ${ages[0]} ans`));
-            for (let i = 0; i < ages.length - 1; i++) {
-                ageFilter.appendChild(createOption(`${ages[i]}-${ages[i + 1]}`, `${ages[i]}-${ages[i + 1]} ans`));
+            const values = [...ages]
+                .map(Number)
+                .filter(Number.isFinite)
+                .sort((a, b) => a - b);
+
+            const items = [];
+
+            if (values.length === 0) return;
+
+            items.push({
+                value: `0-${values[0]}`,
+                text: `- ${values[0]} ans`
+            });
+
+            for (let i = 0; i < values.length - 1; i++) {
+
+                items.push({
+                    value: `${values[i]}-${values[i + 1]}`,
+                    text: `${values[i]}-${values[i + 1]} ans`
+                });
+
             }
-            ageFilter.appendChild(createOption(`${ages[ages.length - 1]}-200`, `${ages[ages.length - 1]} ans et +`));
+
+            items.push({
+                value: `${values[values.length - 1]}-200`,
+                text: `${values[values.length - 1]} ans et +`
+            });
+
+            generateCheckboxFilters(
+                "ageFilter",
+                "ageSummary",
+                items
+            );
+
         }
 
-        // Fonction pour générer dynamiquement les filtres de catégories
+
+        // ==========================================
+        // FILTRE CATEGORIE
+        // ==========================================
+
         function generateCategoryFilters(categories) {
-            const categoryFilter = document.getElementById('categoryFilter');
-            const uniqueCategories = [...new Set(categories)]; // Filtrer les catégories uniques
+
+            const uniqueCategories = [...new Set(categories)];
 
             uniqueCategories.sort((a, b) => {
+
                 if (a === "Jeux prêtés") return 1;
                 if (b === "Jeux prêtés") return -1;
+
                 if (a === "Jeux empruntés") return 1;
                 if (b === "Jeux empruntés") return -1;
-                return a.localeCompare(b);
+
+                return a.localeCompare(b, "fr");
+
             });
-            <!-- uniqueCategories.sort((a, b) => a.localeCompare(b)); -->
-            
-            addSeparator(categoryFilter);
+
+            const items = uniqueCategories.map(category => ({
+
+                value: category,
+                text: category
+
+            }));
+
+            // Bloc filtre
+            const container = document.getElementById("categoryFilter");
+
+            container.innerHTML = "";
+
             let separatorAdded = false;
+
             uniqueCategories.forEach(category => {
+
                 if (
-                    !separatorAdded && (category === "Jeux empruntés" || category === "Jeux prêtés")
+                    !separatorAdded &&
+                    (category === "Jeux empruntés" || category === "Jeux prêtés")
                 ) {
-                    addSeparator(categoryFilter);
+
+                    const separator = document.createElement("hr");
+                    separator.style.border = "none";
+                    separator.style.borderTop = "1px solid #d1d5db";
+                    separator.style.margin = "7px 0";
+
+                    container.appendChild(separator);
+
                     separatorAdded = true;
                 }
-                
-                categoryFilter.appendChild(createOption(category, category));
+
+                container.appendChild(
+                    createOption(category, category)
+                );
+
             });
+
+            updateFilterSummary("categoryFilter", "categorySummary");
+
         }
 
-        // Fonction pour générer dynamiquement les filtres de nombre de joueurs
+
+        // ==========================================
+        // FILTRE JOUEURS
+        // ==========================================
+
         function generatePlayersFilters(players) {
-            const playersFilter = document.getElementById('playersFilter');
-            
-            addSeparator(playersFilter);
-            for (let i = 0; i < players.length - 1; i++) {
-                playersFilter.appendChild(createOption(`${players[i]}`, `${players[i]} joueurs`));
+
+            const values = [...players]
+                .map(Number)
+                .filter(Number.isFinite)
+                .sort((a, b) => a - b);
+
+            const items = [];
+
+            if (values.length === 0) return;
+
+            for (let i = 0; i < values.length - 1; i++) {
+
+                items.push({
+
+                    value: String(values[i]),
+                    text: values[i] + " joueur(s)"
+
+                });
+
             }
-            playersFilter.appendChild(createOption(`${players[players.length - 1]}+`, `${players[players.length - 1]}+ joueurs`));
+
+            items.push({
+
+                value: values[values.length - 1] + "+",
+                text: values[values.length - 1] + "+ joueurs"
+
+            });
+
+            generateCheckboxFilters(
+                "playersFilter",
+                "playersSummary",
+                items
+            );
+
         }
 
-        // Fonction pour générer dynamiquement les filtres de durée
+
+        // ==========================================
+        // FILTRE DUREE
+        // ==========================================
+
         function generateDurationFilters(durations) {
-            const durationFilter = document.getElementById('durationFilter');
-            durations.sort((a, b) => a - b); // Trier les durées
 
-            // Créer les filtres de durée
-            addSeparator(durationFilter);
-            durationFilter.appendChild(createOption(`1-${durations[0]}`, `< ${durations[0]} minutes`)); 
-            for (let i = 0; i < durations.length - 1; i++) {
-                durationFilter.appendChild(createOption(`${durations[i]}-${durations[i + 1]}`, `${durations[i]} - ${durations[i + 1]} minutes`));
+            const values = [...durations]
+                .map(Number)
+                .filter(value => Number.isFinite(value) && value > 0)
+                .sort((a, b) => a - b);
+
+            const items = [];
+
+            if (values.length === 0) return;
+
+            items.push({
+
+                value: `1-${values[0]}`,
+                text: `< ${values[0]} minutes`
+
+            });
+
+            for (let i = 0; i < values.length - 1; i++) {
+
+                items.push({
+
+                    value: `${values[i]}-${values[i + 1]}`,
+                    text: `${values[i]} - ${values[i + 1]} minutes`
+
+                });
+
             }
-            durationFilter.appendChild(createOption(`${durations[durations.length - 1]}-60000`, `> ${durations[durations.length - 1]} minutes`)); 
+
+            items.push({
+
+                value: `${values[values.length - 1]}-60000`,
+                text: `> ${values[values.length - 1]} minutes`
+
+            });
+
+            generateCheckboxFilters(
+                "durationFilter",
+                "durationSummary",
+                items
+            );
+
         }
-        
-        // Fonction de tri des jeux
-        function sortGames(games, sortBy) {
-            games.sort((a, b) => a.nom.localeCompare(b.nom));  // Tri alphabétique
-            
-            if (sortBy === 'duration') {
-                return games.sort((a, b) => {
-                    // Si l'un des jeux a une durée de 0, on le place à la fin
-                    const durationA = a.duree === 0 ? Infinity : a.duree;
-                    const durationB = b.duree === 0 ? Infinity : b.duree;
-                    return durationA - durationB;  // Tri par durée, en plaçant les durées 0 à la fin
-                });
-            } else if (sortBy === 'players') {
-                return games.sort((a, b) => {
-                    // Si nbjoueurs est vide, on met à la fin
-                    const minA = a.nbjoueurs ? parseInt(a.nbjoueurs.split("-")[0]) : Infinity;
-                    const minB = b.nbjoueurs ? parseInt(b.nbjoueurs.split("-")[0]) : Infinity;
-                    return minA - minB;  // Tri par nombre de joueurs minimal
-                });
-            } else if (sortBy === 'age') {
-                return games.sort((a, b) => {
-                    // Si l'âge est vide, on le met à la fin
-                    const minAgeA = a.age ? parseInt(a.age.split("-")[0]) : Infinity; 
-                    const minAgeB = b.age ? parseInt(b.age.split("-")[0]) : Infinity;
-                    return minAgeA - minAgeB;  // Tri par âge minimal
-                });
+
+
+        // ==========================================
+        // TRI A SELECTION UNIQUE
+        // ==========================================
+
+        function generateSortFilters() {
+
+            const items = [
+
+                { value: "", text: "A → Z" },
+                { value: "age", text: "Âge" },
+                { value: "players", text: "Nb joueurs" },
+                { value: "duration", text: "Durée" }
+
+            ];
+
+            const container = document.getElementById("sortFilter");
+
+            container.innerHTML = "";
+
+            items.forEach(item => {
+
+                const label = createOption(item.value, item.text);
+
+                if (item.value === "") {
+                    label.querySelector("input").checked = true;
+                }
+
+                container.appendChild(label);
+
+            });
+
+            updateSortSummary();
+
+        }
+
+
+        // Mise à jour du titre du tri
+        function updateSortSummary() {
+
+            // A -> Z par défaut si pas de case cochée
+            const checked = document.querySelectorAll(
+                '#sortFilter input[type="checkbox"]:checked'
+            );
+
+            if (checked.length === 0) {
+                const alphabetical = document.querySelector(
+                    '#sortFilter input[value=""]'
+                );
+                alphabetical.checked = true;
             }
-            return games; 
+
+            // MàJ du tri
+            const selected = document.querySelector(
+                '#sortFilter input[type="checkbox"]:checked'
+            );
+
+            const summary = document.getElementById("sortSummary");
+
+            summary.textContent = selected
+                ? "Tri : " + selected.nextElementSibling.textContent
+                : "Tri";
+
         }
-        
-        // Fonction pour appliquer les filtres
-        function applyFilters(games, filters) {
-            const ageFilter = document.getElementById('ageFilter').value;
-            const playersFilter = document.getElementById('playersFilter').value;
-            const durationFilter = document.getElementById('durationFilter').value;
-            const categoryFilter = document.getElementById('categoryFilter').value;
-            
+
+
+        // ==========================================
+        // RECUPERATION DES SELECTIONS
+        // ==========================================
+
+        function getSelectedValues(containerId) {
+
+            const container = document.getElementById(containerId);
+
+            return [...container.querySelectorAll(
+                'input[type="checkbox"]:checked'
+            )].map(checkbox => checkbox.value);
+
+        }
+
+
+        // ==========================================
+        // FILTRAGE PAR AGE
+        // ==========================================
+
+        function isAgeMatch(ageRange, filters) {
+
+            if (!ageRange) return false;
+
+            // Age minimum du jeu : par exemple "7+" ou "7-99"
+            const minAge = parseFloat(ageRange);
+
+            if (!Number.isFinite(minAge)) return false;
+
+            // Au moins une tranche sélectionnée doit correspondre
+            return filters.some(filter => {
+
+                const [minFilter, maxFilter] =
+                    filter.split("-").map(Number);
+
+                // Tranche basse : -7
+                if (minFilter === 0) {
+                    return minAge <= maxFilter;
+                }
+
+                // Tranche haute : 10+
+                if (maxFilter >= 200) {
+                    return minAge >= minFilter;
+                }
+
+                // Tranche intermédiaire : 7-10
+                return (
+                    minAge >= minFilter &&
+                    minAge <= maxFilter
+                );
+
+            });
+
+        }
+
+
+        // ==========================================
+        // FILTRAGE PAR NOMBRE DE JOUEURS
+        // ==========================================
+
+        function isPlayerMatch(playerRange, filters) {
+
+            if (!playerRange) return false;
+
+            const parts = playerRange.split("-");
+
+            const minPlayer = parseFloat(parts[0]);
+
+            const maxPlayer = parts.length === 1
+                ? minPlayer
+                : (parts[1] === "" ? Infinity : parseFloat(parts[1]));
+
+            if (!Number.isFinite(minPlayer)) return false;
+
+            return filters.some(filter => {
+
+                if (filter.endsWith("+")) {
+                    const value = parseFloat(filter);
+                    return maxPlayer >= value;
+                }
+
+                const value = parseFloat(filter);
+
+                return minPlayer <= value && maxPlayer >= value;
+
+            });
+
+        }
+
+
+        // ==========================================
+        // FILTRAGE PAR DUREE
+        // ==========================================
+
+        function isDurationMatch(duration, filters) {
+
+            if (!duration || duration <= 0) return false;
+
+            return filters.some(filter => {
+
+                const [minDuration, maxDuration] =
+                    filter.split("-").map(Number);
+
+                return (
+                    duration >= minDuration &&
+                    duration < maxDuration
+                );
+
+            });
+
+        }
+
+
+        // ==========================================
+        // APPLICATION DES FILTRES
+        // ==========================================
+
+        function applyFilters(games) {
+
+            const ageFilters = getSelectedValues("ageFilter");
+
+            const categoryFilters = getSelectedValues("categoryFilter");
+
+            const playersFilters = getSelectedValues("playersFilter");
+
+            const durationFilters = getSelectedValues("durationFilter");
+
             return games.filter(game => {
-                // Filtrage par tranche d'âge
-                const isAgeValid = (ageFilter === "" || isAgeMatch(game.age, ageFilter));
 
-                // Filtrage par nombre de joueurs
-                const isPlayersValid = (playersFilter === "" || isPlayerMatch(game.nbjoueurs, playersFilter));
+                // Age
+                const isAgeValid =
+                    ageFilters.length === 0 ||
+                    isAgeMatch(game.age, ageFilters);
 
-                // Filtrage par durée
-                const isDurationValid = (durationFilter === "" || isDurationMatch(game.duree, durationFilter));
+                // Joueurs
+                const isPlayersValid =
+                    playersFilters.length === 0 ||
+                    isPlayerMatch(game.nbjoueurs, playersFilters);
 
-                // Filtrage par catégorie
-                const isCategoryValid = (categoryFilter === "" || game.categories.includes(categoryFilter));
+                // Durée
+                const isDurationValid =
+                    durationFilters.length === 0 ||
+                    isDurationMatch(game.duree, durationFilters);
 
-                return isAgeValid && isPlayersValid && isDurationValid && isCategoryValid;
+                // Catégorie
+                const isCategoryValid =
+                    categoryFilters.length === 0 ||
+                    categoryFilters.some(category =>
+                        game.categories.includes(category)
+                    );
+
+                // ET entre les différentes familles de filtres
+                return (
+                    isAgeValid &&
+                    isPlayersValid &&
+                    isDurationValid &&
+                    isCategoryValid
+                );
+
             });
+
         }
 
-        // Fonction de correspondance pour l'âge
-        function isAgeMatch(ageRange, filter) {
-        
-            if (ageRange === "") { return false }
 
-            const minAge = parseFloat(ageRange.slice(0, -1));
-            
-            var [minFilter, maxFilter] = filter.split("-");
-            
-            return maxFilter >= minAge;  
-        }
+        // ==========================================
+        // TRI
+        // ==========================================
 
-        // Fonction de correspondance pour les joueurs
-        function isPlayerMatch(playerRange, filter) {
-            
-            if (playerRange === "") { return false }
-        
-            var [minPlayer, maxPlayer] = playerRange.split("-");
-            if (maxPlayer === "") { 
-                maxPlayer = 1000;
-            } else if (maxPlayer === undefined) {
-                maxPlayer = minPlayer;
+        function sortGames(games, sortBy) {
+
+            const sorted = [...games];
+
+            switch (sortBy) {
+
+                case "duration":
+
+                    return sorted.sort((a, b) => {
+
+                        const durationA =
+                            a.duree === 0 ? Infinity : a.duree;
+
+                        const durationB =
+                            b.duree === 0 ? Infinity : b.duree;
+
+                        return durationA - durationB;
+
+                    });
+
+                case "players":
+
+                    return sorted.sort((a, b) => {
+
+                        const minA = a.nbjoueurs
+                            ? parseInt(a.nbjoueurs.split("-")[0])
+                            : Infinity;
+
+                        const minB = b.nbjoueurs
+                            ? parseInt(b.nbjoueurs.split("-")[0])
+                            : Infinity;
+
+                        return (
+                            (Number.isFinite(minA) ? minA : Infinity) -
+                            (Number.isFinite(minB) ? minB : Infinity)
+                        );
+
+                    });
+
+                case "age":
+
+                    return sorted.sort((a, b) => {
+
+                        const minA = a.age
+                            ? parseInt(a.age.split("-")[0])
+                            : Infinity;
+
+                        const minB = b.age
+                            ? parseInt(b.age.split("-")[0])
+                            : Infinity;
+
+                        return (
+                            (Number.isFinite(minA) ? minA : Infinity) -
+                            (Number.isFinite(minB) ? minB : Infinity)
+                        );
+
+                    });
+
+                default:
+
+                    return sorted.sort((a, b) =>
+                        a.nom.localeCompare(b.nom, "fr")
+                    );
+
             }
-            
-            if (filter[filter.length - 1] === '+') {
-                const value = parseFloat(filter.slice(0, -1));
-                return maxPlayer >= value;
-            } else {
-                const value = parseFloat(filter);  
-                return minPlayer <= value && maxPlayer >= value;  
+
+        }
+
+
+        // ==========================================
+        // AFFICHAGE DES JEUX
+        // ==========================================
+
+        function displayGames(games) {
+
+            const gameList = document.getElementById("gameList");
+
+            gameList.innerHTML = "";
+
+            if (games.length === 0) {
+
+                setMessage("Aucun jeu ne correspond aux filtres.");
+
+                updateGameCount(0);
+
+                return;
+
             }
-            
-            return false;
+
+            games.forEach(game => {
+
+                const gameCard = document.createElement("div");
+
+                gameCard.classList.add("game-card");
+
+                if (Boolean(game.emprunt)) {
+                    gameCard.classList.add("emprunte");
+                }
+
+                const img = document.createElement("img");
+
+                if (game.image) {
+                    img.src = game.image;
+                }
+
+                img.alt = game.nom;
+                img.loading = "lazy";
+
+                const textContent = document.createElement("div");
+
+                textContent.className = "text-content";
+
+                const title = document.createElement("h3");
+
+                title.textContent = game.nom;
+
+                const age = document.createElement("p");
+
+                age.textContent = "Âge : " + (game.age || "?");
+
+                const players = document.createElement("p");
+
+                players.textContent =
+                    "Joueurs : " + (game.nbjoueurs || "?");
+
+                const duration = document.createElement("p");
+
+                duration.textContent =
+                    "Durée : " +
+                    (game.duree !== 0
+                        ? game.duree + " minutes"
+                        : "?");
+
+                textContent.appendChild(title);
+                textContent.appendChild(age);
+                textContent.appendChild(players);
+                textContent.appendChild(duration);
+
+                gameCard.appendChild(img);
+                gameCard.appendChild(textContent);
+
+                gameList.appendChild(gameCard);
+
+            });
+
+            updateGameCount(games.length);
+
         }
-        
-        // Fonction de correspondance pour la durée
-        function isDurationMatch(duration, filter) {
-            
-            if (duration === "") { return false }
-        
-            const [minDuration, maxDuration] = filter.split("-").map(Number);
-            
-            return duration >= minDuration && duration < maxDuration;
+
+
+        // ==========================================
+        // COMPTEURS
+        // ==========================================
+
+        function updateGameCount(displayed) {
+
+            document.getElementById("gameCount2").textContent =
+                displayed +
+                " jeu" + (displayed > 1 ? "x" : "") +
+                " affiché" + (displayed > 1 ? "s" : "");
 
         }
 
-        // Charger les jeux et les filtres au démarrage
-        loadGames().then(data => {
-            const { filtres, jeux } = data;
 
-            // Générer dynamiquement les filtres
-            generateAgeFilters(filtres.ages);
-            generateCategoryFilters(jeux.flatMap(game => game.categories));
-            generatePlayersFilters(filtres.joueurs);
-            generateDurationFilters(filtres.duree);
+        // ==========================================
+        // ACTUALISATION DES TITRES DES FILTRES
+        // ==========================================
 
-            // Appliquer les filtres et trier les jeux lors du changement d'un filtre
-            document.getElementById('ageFilter').addEventListener('change', () => {
-                const filteredGames = applyFilters(jeux, filtres);
-                const sortBy = document.getElementById('sortBy').value;
-                const sortedGames = sortGames(filteredGames, sortBy);
-                displayGames(sortedGames);
+        function updateAllFilterSummaries() {
+
+            updateFilterSummary("ageFilter", "ageSummary");
+
+            updateFilterSummary("categoryFilter", "categorySummary");
+
+            updateFilterSummary("playersFilter", "playersSummary");
+
+            updateFilterSummary("durationFilter", "durationSummary");
+
+            updateSortSummary();
+
+        }
+
+
+        // ==========================================
+        // ACTUALISATION GENERALE
+        // ==========================================
+
+        function refreshGames() {
+
+            updateAllFilterSummaries();
+
+            const filteredGames = applyFilters(jeux);
+
+            const selectedSort = document.querySelector(
+                '#sortFilter input[type="checkbox"]:checked'
+            );
+
+            const sortBy = selectedSort
+                ? selectedSort.value
+                : "";
+
+            currentGames = sortGames(filteredGames, sortBy);
+
+            displayGames(currentGames);
+
+        }
+
+
+        // ==========================================
+        // REINITIALISATION
+        // ==========================================
+
+        function resetFilters() {
+
+            document.querySelectorAll(
+                '.filter-options input[type="checkbox"]'
+            ).forEach(checkbox => {
+                checkbox.checked = false;
             });
 
-            document.getElementById('categoryFilter').addEventListener('change', () => {
-                const filteredGames = applyFilters(jeux, filtres);
-                const sortBy = document.getElementById('sortBy').value;
-                const sortedGames = sortGames(filteredGames, sortBy);
-                displayGames(sortedGames);
+            // Recocher le tri alphabétique
+            const alphabetical = document.querySelector(
+                '#sortFilter input[value=""]'
+            );
+
+            if (alphabetical) {
+                alphabetical.checked = true;
+            }
+
+            refreshGames();
+
+        }
+
+
+        // ==========================================
+        // SELECTION ALEATOIRE
+        // ==========================================
+
+        function selectRandomGame() {
+
+            // Exclure les jeux prêtés
+            const availableGames = currentGames.filter(game =>
+                !game.emprunt
+            );
+
+            if (availableGames.length === 0) {
+                return;
+            }
+
+            const selectedGame = availableGames[
+                Math.floor(Math.random() * availableGames.length)
+            ];
+
+            const cards = document.querySelectorAll(".game-card");
+
+            cards.forEach(card => {
+                card.classList.remove("selected");
             });
 
-            document.getElementById('playersFilter').addEventListener('change', () => {
-                const filteredGames = applyFilters(jeux, filtres);
-                const sortBy = document.getElementById('sortBy').value;
-                const sortedGames = sortGames(filteredGames, sortBy);
-                displayGames(sortedGames);
+            // Retrouver la carte correspondant au jeu sélectionné
+            const index = currentGames.indexOf(selectedGame);
+            const selectedCard = cards[index];
+
+            if (selectedCard) {
+
+                selectedCard.classList.add("selected");
+
+                selectedCard.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            }
+
+        }
+
+
+        // ==========================================
+        // EVENEMENTS DES FILTRES
+        // ==========================================
+
+        document.querySelectorAll(".filter-group").forEach(group => {
+
+            group.addEventListener("change", event => {
+
+                if (!event.target.matches('input[type="checkbox"]')) {
+                    return;
+                }
+
+                // Le tri est à sélection unique
+                if (group.classList.contains("sort-group")) {
+
+                    const selected = event.target;
+
+                    group.querySelectorAll(
+                        'input[type="checkbox"]'
+                    ).forEach(checkbox => {
+
+                        if (checkbox !== selected) {
+                            checkbox.checked = false;
+                        }
+
+                    });
+
+                }
+
+                refreshGames();
+
             });
 
-            document.getElementById('durationFilter').addEventListener('change', () => {
-                const filteredGames = applyFilters(jeux, filtres);
-                const sortBy = document.getElementById('sortBy').value;
-                const sortedGames = sortGames(filteredGames, sortBy);
-                displayGames(sortedGames);
-            });
-
-            // Appliquer le tri au changement du critère de tri
-            document.getElementById('sortBy').addEventListener('change', () => {
-                const filteredGames = applyFilters(jeux, filtres);
-                const sortBy = document.getElementById('sortBy').value;
-                const sortedGames = sortGames(filteredGames, sortBy);
-                displayGames(sortedGames);
-            });
-
-            const gameCount = document.getElementById('gameCount');
-            gameCount.textContent = `${data.nbJeux} jeu${data.nbJeux > 1 ? 'x' : ''} possédé${data.nbJeux > 1 ? 's' : ''}`;
-
-            // Afficher tous les jeux au début avec tri alphabétique par défaut
-            const sortedGames = sortGames(jeux, 'alphabetical');
-            displayGames(sortedGames);
         });
+
+
+        // Fermer les autres panneaux lorsqu'on en ouvre un
+        document.querySelectorAll(".filter-group").forEach(group => {
+
+            group.addEventListener("toggle", () => {
+
+                if (group.open) {
+
+                    document.querySelectorAll(".filter-group").forEach(other => {
+
+                        if (other !== group) {
+                            other.open = false;
+                        }
+
+                    });
+
+                }
+
+            });
+
+        });
+
+
+        // ==========================================
+        // INITIALISATION
+        // ==========================================
+
+        async function init() {
+
+            try {
+
+                await loadGames();
+
+                generateAgeFilters(filtres.ages);
+
+                generateCategoryFilters(
+                    jeux.flatMap(game => game.categories)
+                );
+
+                generatePlayersFilters(filtres.joueurs);
+
+                generateDurationFilters(filtres.duree);
+
+                generateSortFilters();
+
+                document.getElementById("gameCount").textContent =
+                    nbJeuxPossedes +
+                    " jeu" + (nbJeuxPossedes > 1 ? "x" : "") +
+                    " possédé" + (nbJeuxPossedes > 1 ? "s" : "");
+
+                document.getElementById("resetFilters")
+                    .addEventListener("click", resetFilters);
+
+                document.getElementById("randomGame")
+                    .addEventListener("click", selectRandomGame);
+
+                refreshGames();
+
+            } catch (error) {
+
+                console.error("Erreur :", error);
+
+                setMessage(
+                    "Impossible de charger la ludothèque. " +
+                    "Vérifie la présence et le contenu du fichier jeux" +
+                    u + ".json.",
+                    true
+                );
+
+            }
+
+        }
+
+        init();
+
     </script>
 
 </body>
-
 </html>
