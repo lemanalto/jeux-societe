@@ -1,0 +1,26 @@
+{
+    "filtres": {
+        "ages": [7, 10],
+        "joueurs": [1, 2, 3, 4, 5, 6, 7],
+        "duree": [30, 60]
+    },
+    "jeux": [
+        {
+            "nom": "Dewan",
+            "categories": ["Stratégie", "Gestion et développement"],
+            "age": "10+",
+            "nbjoueurs": "2-4",
+            "duree": 40,
+            "image": "img/Dewan.webp",
+            "emprunt": 1
+        },
+        {
+            "nom": "Agent Avenue",
+            "categories": ["Stratégie", "Aventure, course et simulation"],
+            "age": "8+",
+            "nbjoueurs": "2",
+            "duree": 20,
+            "image": "img/Agent_Avenue.webp"
+        }
+    ]
+}
