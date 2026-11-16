@@ -21,6 +21,23 @@
             "nbjoueurs": "2",
             "duree": 20,
             "image": "img/Agent_Avenue.webp"
+        },
+        {
+            "nom": "Concept Kids : Animaux",
+            "categories": ["Ambiance", "Défis, énigmes et quizz"],
+            "age": "4+",
+            "nbjoueurs": "2-12",
+            "duree": 20,
+            "image": "img/Concept_Kids_Animals.webp"
+        },
+        {
+            "nom": "Great Plains",
+            "categories": ["Stratégie", "Gestion et développement"],
+            "age": "10+",
+            "nbjoueurs": "2",
+            "duree": 20,
+            "image": "img/Great_Plains.png",
+            "emprunt": 1
         }
     ]
 }
