@@ -155,8 +155,7 @@
             "age": "8+",
             "nbjoueurs": "2-6",
             "duree": 20,
-            "image": "img/1p.webp",
-            "emprunt": 2
+            "image": "img/1p.webp"
         },
         {
             "nom": "Abra Chadabra",
@@ -236,7 +235,8 @@
             "age": "10+",
             "nbjoueurs": "2-6",
             "duree": 25,
-            "image": "img/Once_Upon_A_Draft.webp"
+            "image": "img/Once_Upon_A_Draft.webp",
+            "emprunt": 2
         },
         {
             "nom": "Flatiron",
@@ -308,8 +308,7 @@
             "age": "10+",
             "nbjoueurs": "2-4",
             "duree": 30,
-            "image": "img/Ile_Interdite.webp",
-            "emprunt": 2
+            "image": "img/Ile_Interdite.webp"
         },
         {
             "nom": "6 Qui Prend !",
@@ -349,7 +348,8 @@
             "age": "10+",
             "nbjoueurs": "2",
             "duree": 30,
-            "image": "img/Splendor_Duel.webp"
+            "image": "img/Splendor_Duel.webp",
+            "emprunt": 3
         },
         {
             "nom": "For A Crown",
@@ -357,7 +357,8 @@
             "age": "8+",
             "nbjoueurs": "3-5",
             "duree": 30,
-            "image": "img/For_A_Crown.webp"
+            "image": "img/For_A_Crown.webp",
+            "emprunt": 2
         },
         {
             "nom": "Zenith",
@@ -417,7 +418,7 @@
         },
         {
             "nom": "Pixies",
-            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "categories": ["Stratégie", "Réflexion et tactique"],
             "age": "8+",
             "nbjoueurs": "2-5",
             "duree": 30,
@@ -425,10 +426,10 @@
         },
         {
             "nom": "Dune",
-            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "categories": ["Stratégie", "Aventure, course et simulation"],
             "age": "14+",
             "nbjoueurs": "2-6",
-            "duree": 60,
+            "duree": 120,
             "image": "img/Dune.webp"
         },
         {
@@ -438,6 +439,22 @@
             "nbjoueurs": "2-5",
             "duree": 15,
             "image": "img/Dnup.webp"
+        },
+        {
+            "nom": "Ettin : L'union fait la force",
+            "categories": ["Stratégie", "Aventure, course et simulation"],
+            "age": "14+",
+            "nbjoueurs": "2-8",
+            "duree": 45,
+            "image": "img/Ettin.png"
+        },
+        {
+            "nom": "Sierra",
+            "categories": ["Stratégie", "Réflexion et tactique"],
+            "age": "10+",
+            "nbjoueurs": "1-8",
+            "duree": 30,
+            "image": "img/Sierra.webp"
         }
     ]
 }
