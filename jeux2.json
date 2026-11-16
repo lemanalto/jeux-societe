@@ -155,8 +155,7 @@
             "age": "7+",
             "nbjoueurs": "2-6",
             "duree": 20,
-            "image": "img/DTC.jpg",
-            "emprunt": 1
+            "image": "img/DTC.jpg"
         },
         {
             "nom": "Las Vegas",
@@ -172,8 +171,7 @@
             "age": "10+",
             "nbjoueurs": "2-4",
             "duree": 30,
-            "image": "img/Arctic.webp",
-            "emprunt": 1
+            "image": "img/Arctic.webp"
         },
         {
             "nom": "Chabyrinthe",
@@ -293,7 +291,8 @@
             "age": "8+",
             "nbjoueurs": "2-7",
             "duree": 25,
-            "image": "img/7_Wonders_Architects.webp"
+            "image": "img/7_Wonders_Architects.webp",
+            "emprunt": 1
         },
         {
             "nom": "La Colline aux Feux Follets",
@@ -545,7 +544,7 @@
         },
         {
             "nom": "Pixies",
-            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "categories": ["Stratégie", "Réflexion et tactique"],
             "age": "8+",
             "nbjoueurs": "2-5",
             "duree": 30,
@@ -553,7 +552,7 @@
         },
         {
             "nom": "Blanc Manger Coco",
-            "categories": ["Ambiance", "Adresse, mémoire et rapidité"],
+            "categories": ["Ambiance", "Délires et rigolades"],
             "age": "16+",
             "nbjoueurs": "3-12",
             "duree": 30,
